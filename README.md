@@ -28,4 +28,4 @@ O jogo foca em:
 1. Certifique-se de ter o **Godot 4.2** (ou superior) instalado em sua máquina.
 2. Clone este repositório:
    ```bash
-   git clone [https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git](https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git)
+   git clone [https://github.com/davidkleinn/Sharimar.git]
