@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://duh3aagu5c5yt"]
+
+[ext_resource type="VideoStream" path="res://lucas/copy_6E87257D-8376-486E-BF80-C819A02AF20E.ogv" id="1_swvgs"]
+[ext_resource type="Script" path="res://Scripts/VideoStreamPlayer.gd" id="2_hl3qw"]
+
+[node name="resumo" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -353.0
+offset_top = -197.0
+offset_right = 351.0
+offset_bottom = 199.0
+stream = ExtResource("1_swvgs")
+expand = true
+script = ExtResource("2_hl3qw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.29, 2.29)
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]

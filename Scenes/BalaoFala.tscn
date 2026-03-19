@@ -1,0 +1,138 @@
+[gd_scene load_steps=7 format=3 uid="uid://b47a4qxauhswx"]
+
+[ext_resource type="Texture2D" uid="uid://d2jk6521lav1v" path="res://SpeachBubbleBoarder.png" id="1_c26pg"]
+[ext_resource type="Script" path="res://Scripts/balao_fala.gd" id="1_ywyn6"]
+[ext_resource type="FontFile" uid="uid://0d57jphttbm3" path="res://NicoFontPack-v1.0/Base Font Files/NicoBold/NicoBold-Monospaced.ttf" id="2_kqg3q"]
+[ext_resource type="FontFile" uid="uid://cidbgltfrrs7m" path="res://NicoFontPack-v1.0/Base Font Files/NicoBold/NicoBold-Monospaced.otf" id="4_muh27"]
+
+[sub_resource type="Animation" id="Animation_isr5n"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmmj4"]
+_data = {
+"new_animation": SubResource("Animation_isr5n")
+}
+
+[node name="Balão" type="Node2D"]
+script = ExtResource("1_ywyn6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BalaoCharada2" type="NinePatchRect" parent="Control"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 534.0
+offset_top = -5.0
+offset_right = 1518.0
+offset_bottom = 207.0
+texture = ExtResource("1_c26pg")
+
+[node name="BalaoCharada" type="NinePatchRect" parent="Control"]
+modulate = Color(0, 0, 0, 0.85098)
+layout_mode = 0
+offset_left = 555.0
+offset_top = 13.0
+offset_right = 1503.0
+offset_bottom = 185.0
+texture = ExtResource("1_c26pg")
+
+[node name="Charada1" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 552.0
+offset_top = 24.0
+offset_right = 1458.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_kqg3q")
+theme_override_font_sizes/font_size = 30
+text = "Eu venho depois de \"Monday\" 
+e antes de \"Wednesday\". 
+Quem sou eu?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BalaoResposta1" type="NinePatchRect" parent="Control"]
+modulate = Color(0, 0, 0, 0.85098)
+layout_mode = 0
+offset_left = 158.0
+offset_top = 82.0
+offset_right = 403.0
+offset_bottom = 156.0
+texture = ExtResource("1_c26pg")
+
+[node name="Resposta1" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 230.5
+offset_top = 91.0
+offset_right = 290.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_muh27")
+theme_override_font_sizes/font_size = 30
+text = "Teste"
+
+[node name="BalaoResposta2" type="NinePatchRect" parent="Control"]
+modulate = Color(0, 0, 0, 0.85098)
+layout_mode = 0
+offset_left = 1557.0
+offset_top = 84.0
+offset_right = 1802.0
+offset_bottom = 156.0
+texture = ExtResource("1_c26pg")
+
+[node name="Resposta2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1629.5
+offset_top = 92.0
+offset_right = 1689.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_muh27")
+theme_override_font_sizes/font_size = 30
+text = "Teste"
+
+[node name="Resposta3" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1629.5
+offset_top = 92.0
+offset_right = 1689.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_muh27")
+text = "Teste"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../BalaoCharada2")
+libraries = {
+"": SubResource("AnimationLibrary_nmmj4")
+}

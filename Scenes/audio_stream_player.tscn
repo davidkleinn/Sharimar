@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkffghqq0qbwl"]
+
+[ext_resource type="AudioStream" uid="uid://dmgdrxfsoffef" path="res://Scenes/SouthParkSharimar.mp3" id="1_7b8pl"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_7b8pl")
+autoplay = true

@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2at6acr4nxo1"]
+
+[ext_resource type="Script" path="res://Scripts/Node.gd" id="1_ch2rg"]
+[ext_resource type="Texture2D" uid="uid://dxebuwdafo8eu" path="res://lucas/na horizontal c 21ba1d55-0b49-43f7-abe9-68a2d5f0601b.ppg.jpg" id="1_xl0nh"]
+[ext_resource type="FontFile" uid="uid://bpnmxstw7swug" path="res://NicoFontPack-v1.0/Base Font Files/NicoBold/NicoBold-Regular.woff2" id="2_g1tno"]
+[ext_resource type="Texture2D" uid="uid://f8eyuaynhyvc" path="res://lucas/Family__1_-removebg-preview.png" id="4_et30x"]
+[ext_resource type="Script" path="res://Scripts/NodeBT.gd" id="4_mylgo"]
+
+[sub_resource type="Animation" id="Animation_1ungy"]
+resource_name = "Blink"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.266667), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xay5n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1lnp"]
+_data = {
+"Blink": SubResource("Animation_1ungy"),
+"RESET": SubResource("Animation_xay5n")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_t5r6f"]
+
+[node name="StartScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Node" type="Node" parent="CanvasLayer"]
+script = ExtResource("1_ch2rg")
+
+[node name="Label" type="Label" parent="CanvasLayer/Node"]
+visibility_layer = 129
+offset_left = -523.0
+offset_top = 89.0
+offset_right = 2077.0
+offset_bottom = 546.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_g1tno")
+theme_override_font_sizes/font_size = 100
+text = "Nome Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypingTimer" type="Timer" parent="CanvasLayer/Node"]
+autostart = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = -0.005
+anchor_right = 1.41
+anchor_bottom = 1.438
+offset_top = 5.4
+offset_right = -0.200195
+offset_bottom = 44.9601
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Navegation" type="Node" parent="CanvasLayer"]
+
+[node name="NodeBT" type="Node" parent="CanvasLayer/Navegation"]
+script = ExtResource("4_mylgo")
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Navegation/NodeBT"]
+offset_left = 295.0
+offset_top = 420.0
+offset_right = 2201.0
+offset_bottom = 1061.0
+scale = Vector2(0.515506, 0.687555)
+icon = ExtResource("4_et30x")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Navegation/NodeBT"]
+root_node = NodePath("../PlayButton")
+libraries = {
+"": SubResource("AnimationLibrary_p1lnp")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+material = SubResource("CanvasItemMaterial_t5r6f")
+position = Vector2(1299.42, 796.311)
+scale = Vector2(1.35334, 1.48461)
+texture = ExtResource("1_xl0nh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1325, 745)
+scale = Vector2(1.06508, 1)
+zoom = Vector2(0.63, 0.63)
+
+[connection signal="pressed" from="CanvasLayer/Navegation/NodeBT/PlayButton" to="CanvasLayer/Navegation/NodeBT" method="_on_play_button_pressed"]

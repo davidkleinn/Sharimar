@@ -1,0 +1,12 @@
+# Pasta de cache do Godot 4.x (ESSENCIAL ignorar)
+.godot/
+
+# Arquivos de exportação e builds
+*.tmp
+*.log
+export_presets.cfg
+builds/
+
+# Arquivos de sistema (lixo)
+.DS_Store
+Thumbs.db
